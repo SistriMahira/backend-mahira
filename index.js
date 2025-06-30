@@ -1,6 +1,8 @@
 const express = require("express");
+const cors = require('cors');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
+app.use(cors());
 
 app.use(express.json());
 
@@ -9,6 +11,8 @@ let nextId = 1;
 
 // GET all todos
 app.get("/api/todos", (req, res) => {
+  console.log("testing");
+  
   res.json({
     status: "success",
     message: "Data retrieved successfully",
